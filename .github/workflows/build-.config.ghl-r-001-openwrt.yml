@@ -113,5 +113,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: OpenWrt_firmware
+        name: ghl-r-001_firmware
         path: ${{ env.FIRMWARE }}
