@@ -5,6 +5,7 @@
 [![GitHub Forks](https://img.shields.io/github/forks/P3TERX/Actions-OpenWrt.svg?style=flat-square&label=Forks)](https://github.com/P3TERX/Actions-OpenWrt/fork)
 
 Build OpenWrt using GitHub Actions
+
 cd ~/lede && git pull && ./scripts/feeds update -a &&./scripts/feeds install -a && make menuconfig 
 
 ## Usage
