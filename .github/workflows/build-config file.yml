@@ -73,10 +73,10 @@ jobs:
       id: organize
       if: env.UPLOAD_CONFIG == 'true' && !cancelled()
       run: |
-        rm -rf openwrt/artifact/
-        mkdir -p openwrt/artifact/
-        find openwrt/ -name "*.config*" | xargs -i mv -f {} openwrt/artifact/
-        cd openwrt/artifact/
+        rm -rf artifact/
+        mkdir -p artifact/
+        mv openwrt/.config artifact/.config
+        cd artifact/
         echo "::set-env name=FIRMWARE::$(pwd)"
         echo "::set-output name=status::success"
 
