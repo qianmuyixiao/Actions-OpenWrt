@@ -10,7 +10,7 @@ name: Build config file
 
 on: 
   release:
-    types: [published]
+    types: published
   push:
     branches: 
       - master
@@ -19,7 +19,7 @@ on:
 #  schedule:
 #    - cron: 0 8 * * 5
   watch:
-    types: [started]
+    types: started
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -73,10 +73,7 @@ jobs:
       id: organize
       if: env.UPLOAD_CONFIG == 'true' && !cancelled()
       run: |
-        rm -rf artifact/
-        mkdir -p artifact/
-        mv openwrt/.config artifact/.config
-        cd artifact/
+        rm -rf openwrt/artifact && mkdir -p openwrt/artifact && cd openwrt && mv .config artifact/.config && cd artifact
         echo "::set-env name=FIRMWARE::$(pwd)"
         echo "::set-output name=status::success"
 
