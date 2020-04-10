@@ -24,8 +24,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  DEVICE_NAME: mac1200r
-  CONFIG_FILE: .config.$DEVICE_NAME
+  CONFIG_FILE: .config.mac1200r
   DIY_SH: diy.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: true
@@ -116,10 +115,10 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: ${{ env.DEVICE_NAME }}_firmware
+        name: mac1200r_firmware
         path: ${{ env.FIRMWARE }}
 
-    - name: Upload ${{ env.DEVICE_NAME }} firmware to cowtransfer
+    - name: Upload firmware to cowtransfer
       if: env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
       run: |
         curl -sL https://git.io/cowtransfer | sh
